@@ -47,3 +47,7 @@ PiShare is built upon great software by the open source community. These are the
 [Flask](https://flask.palletsprojects.com/) — [BSD-3-Clause License](https://github.com/pallets/flask/blob/main/LICENSE.rst)
 
 [Flask-Autoindex](https://github.com/general03/flask-autoindex) — [MIT License](https://github.com/general03/flask-autoindex/blob/master/LICENSE.md)
+
+[Socket.IO](https://socket.io/) — [MIT License](https://github.com/socketio/socket.io/blob/main/LICENSE)
+
+[Flask-SocketIO](https://github.com/miguelgrinberg/Flask-SocketIO) — [MIT License](https://github.com/miguelgrinberg/Flask-SocketIO/blob/main/LICENSE)

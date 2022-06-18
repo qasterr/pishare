@@ -13,6 +13,7 @@ if app.config["SECRET_KEY"] == "<YOUR_SECRET_KEY>":
 
 from . import views
 app.register_blueprint(views.files)
+app.register_blueprint(views.chat)
 
 @app.route("/")
 def index() -> Response():
