@@ -40,3 +40,10 @@ UPLOAD_FOLDER = "uploads"
 A *secret* key used by Flask. If you do not know how to generate one see [this Stack Overflow answer](https://stackoverflow.com/a/54433731).
 ### UPLOAD_FOLDER
 The name of the folder to use for downloaded files. Will default to `uploads` if not set.
+
+## Open Source Licenses
+PiShare is built upon great software by the open source community. These are their licenses.
+
+[Flask](https://flask.palletsprojects.com/) — [BSD-3-Clause License](https://github.com/pallets/flask/blob/main/LICENSE.rst)
+
+[Flask-Autoindex](https://github.com/general03/flask-autoindex) — [MIT License](https://github.com/general03/flask-autoindex/blob/master/LICENSE.md)
