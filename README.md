@@ -34,9 +34,9 @@ py run.py
 Example `instances/config.py` file:
 ```python
 SECRET_KEY = "<YOUR_SECRET_KEY>"
-UPLOAD_FOLDER = "/uploads"
+UPLOAD_FOLDER = "uploads"
 ```
 ### SECRET_KEY
 A *secret* key used by Flask. If you do not know how to generate one see [this Stack Overflow answer](https://stackoverflow.com/a/54433731).
 ### UPLOAD_FOLDER
-The name of the folder to use for downloaded files. Will default to `/uploads` if not set.
+The name of the folder to use for downloaded files. Will default to `uploads` if not set.
