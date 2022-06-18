@@ -1,2 +1,2 @@
-from .files import app as files
-from .chat import app as chat
+from .files import files
+from .chat import chat

@@ -3,8 +3,7 @@ from flask import Flask, Response, redirect
 app = Flask(__name__, instance_relative_config=True)
 app.config.from_pyfile("config.py")
 
-app_ctx = app.app_context()
-app_ctx.push()
+UPLOAD_FOLDER = app.config.get("UPLOAD_FOLDER", "uploads")
 
 if app.config["SECRET_KEY"] == "<YOUR_SECRET_KEY>":
     print("Please change your secret key!")

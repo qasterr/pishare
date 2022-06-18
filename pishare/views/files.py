@@ -4,13 +4,14 @@ from flask import Blueprint, Response, request, flash, render_template, abort, c
 from flask_autoindex import AutoIndexBlueprint, AutoIndex
 from werkzeug.utils import secure_filename, safe_join
 
-with current_app.app_context():
-    UPLOAD_FOLDER = Path(Path(__file__).parent.parent / current_app.config.get("UPLOAD_FOLDER", "uploads"))
+import pishare
 
-app = Blueprint("files", __name__, url_prefix="/files/")
-file_index = AutoIndexBlueprint(app, UPLOAD_FOLDER, add_url_rules=False)
+UPLOAD_FOLDER = Path(Path(__file__).parent.parent / pishare.UPLOAD_FOLDER)
 
-@app.route("/upload/", methods=["POST"])
+files = Blueprint("files", __name__, url_prefix="/files/")
+file_index = AutoIndexBlueprint(files, UPLOAD_FOLDER, add_url_rules=False)
+
+@files.route("/upload/", methods=["POST"])
 def upload_file() -> Response:
     if "file" not in request.files:
         print("E")
@@ -25,7 +26,7 @@ def upload_file() -> Response:
     return redirect(f"/files/")
 
 
-@app.route("/")
-@app.route("/<path:path>")
+@files.route("/")
+@files.route("/<path:path>")
 def autoindex(path="."):
     return file_index.render_autoindex(path, template="file_browser.html")
