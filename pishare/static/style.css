@@ -1,0 +1,70 @@
+@import url("https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/metropolis.min.css");
+
+:root {
+    /* From https://flatuicolors.com/palette/de */
+    --accent: #3867d6;
+    --text-color: #fff;
+    --text-accent: #d1d8e0;
+    --text-dark: #4b6584;
+    font-size: 18px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Metropolis', sans-serif;
+}
+
+body {
+    background-color: #fff;
+}
+
+a {
+    color: inherit;
+}
+
+nav a, nav p {
+    color: var(--text-color) !important;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: var(--text-accent) !important;
+    text-decoration: none;
+}
+
+nav {
+    background-color: var(--accent);
+    display: flex;
+    flex-direction: row;
+
+    padding: clamp(10px, 1vw, 50px);
+
+    justify-content: space-between;
+}
+
+nav * {
+    padding: 0;
+    margin: 0;
+    font-size: clamp(16px, 1.2vw, 32px);
+}
+
+#nav-items {
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+}
+
+button {
+    padding: .3rem;
+    border-radius: .2rem;
+    background-color: #d1d8e0 !important;
+}
+
+button:hover {
+    background-color: #a5b1c2 !important;
+}
+
+main {
+    padding: 1vw;
+}

@@ -1,0 +1,21 @@
+th {
+    background: #d1d8e0 !important;
+}
+
+.file-upload {
+    padding: .5vw;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+
+    margin-top: .5rem;
+    padding: .5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #d1d8e0;
+    font-size: 1rem;
+}

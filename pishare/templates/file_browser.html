@@ -1,0 +1,24 @@
+{% extends '__autoindex__/autoindex.html' %}
+
+{% block meta %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='file_browser.css') }}">
+{% endblock %}
+
+{% block header %}
+  {% include "navbar.html" %}
+  <div class="file-upload">
+    <form method="post" action="/files/upload/" enctype=multipart/form-data>
+      <label for="file-upload">Upload a file:</label>
+      <input type="file" name="file" id="file-upload" required>
+      <button type="submit">Upload File</button>
+    </form>
+  </div>
+{% endblock %}
+
+{% block footer %}
+  <div class="footer">
+    <a href="#">Back to top</a>
+  </div>
+{% endblock %}
