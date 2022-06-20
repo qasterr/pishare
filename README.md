@@ -32,7 +32,7 @@ Linux or Mac
 ```
 Windows
 ```bash
-gunicorn --worker-class eventlet -w 1 pishare:app
+.\run.bat
 ```
 
 ## Configuration Keys
