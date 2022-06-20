@@ -1,1 +1,1 @@
-gunicorn --worker-class eventlet -w 4 pishare:app
+gunicorn --worker-class eventlet -w 1 pishare:app
