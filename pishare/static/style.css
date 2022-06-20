@@ -57,7 +57,7 @@ main {
     padding: 1vw;
 }
 
-#error {
+.error {
     color: #fc5c65;
 }
 

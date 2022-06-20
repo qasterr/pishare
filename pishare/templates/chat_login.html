@@ -9,7 +9,7 @@
         <input type="text" id="username" name="username" placeholder="Username" required aria-required="true">
         <br><br>
         {% if error is defined %}
-            <p id="error">{{ error }}</p>
+            <p class="error">{{ error }}</p>
         {% endif %}
         <button type="submit">Choose username</button>
     </form>
