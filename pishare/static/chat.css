@@ -2,12 +2,6 @@ html {
     scroll-behavior: smooth;
 }
 
-nav {
-    position: fixed;
-    top: 0;
-    width: calc(100% - 2vw);
-}
-
 #chat-bar {
     width: 100%;
 
@@ -15,9 +9,6 @@ nav {
     bottom: 1vw;
 }
 
-main {
-    margin-top: 3.51vw;
-}
 
 form {
     width: calc(100% - 2vw);
@@ -50,5 +41,10 @@ button[type="submit"]:hover {
 }
 
 #page-bottom {
-    height: 4.5vw;
+    height: clamp(4.5rem, 4.5vw, 5rem);
+    background-color: #fff;
+}
+
+#errorBox {
+    margin-bottom: 2px;
 }

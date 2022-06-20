@@ -1,6 +1,7 @@
 const chat_box = document.getElementById("chat-box");
 const form = document.getElementById("form");
 const inputField = document.getElementById("input-field");
+const errorBox = document.getElementById("error-box");
 const pageBottom = document.getElementById("page-bottom");
 
 const socket = io.connect(`http://${document.domain}:${location.port}/chat`);
@@ -42,9 +43,18 @@ function addMessage(message, author = null) {
 form.addEventListener("submit", (e) => {
     e.preventDefault();
 
+    errorBox.innerText = "";
+
     const formData = new FormData(form);
 
     message = formData.get("message");
+
+    console.log(message.length);
+
+    if (message.length > 2000) {
+        errorBox.innerText = "Message too long. Messages can only be 2000 characters long."
+        return false;
+    }
 
     socket.emit("text", {
         "msg": message

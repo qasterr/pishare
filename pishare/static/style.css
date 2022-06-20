@@ -36,8 +36,8 @@ nav {
     display: flex;
     flex-direction: row;
 
+    height: clamp(1rem, 4vw, 1.75rem);
     padding: clamp(10px, 1vw, 50px);
-
     justify-content: space-between;
 }
 
