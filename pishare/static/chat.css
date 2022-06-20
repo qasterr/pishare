@@ -1,0 +1,54 @@
+html {
+    scroll-behavior: smooth;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    width: calc(100% - 2vw);
+}
+
+#chat-bar {
+    width: 100%;
+
+    position: fixed;
+    bottom: 1vw;
+}
+
+main {
+    margin-top: 3.51vw;
+}
+
+form {
+    width: calc(100% - 2vw);
+    display: flex;
+    flex: row;
+
+    column-gap: 5px;
+}
+
+form > * {
+    padding: clamp(.5rem, 1vw, .8rem);
+}
+
+input {
+    flex-grow: 1;
+}
+
+button[type="submit"] {
+    background-color: #3867d6;
+    border: 2px solid #3867d6;
+
+    color: var(--text-color);
+
+    border-radius: 5px;
+}
+
+button[type="submit"]:hover {
+    background-color: #4b7bec;
+    border: 2px solid #4b7bec;
+}
+
+#page-bottom {
+    height: 4.5vw;
+}
