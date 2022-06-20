@@ -53,16 +53,6 @@ nav * {
     column-gap: 20px;
 }
 
-button {
-    padding: .3rem;
-    border-radius: .2rem;
-    background-color: #d1d8e0 !important;
-}
-
-button:hover {
-    background-color: #a5b1c2 !important;
-}
-
 main {
     padding: 1vw;
 }

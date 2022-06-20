@@ -19,3 +19,13 @@ th {
     background-color: #d1d8e0;
     font-size: 1rem;
 }
+
+button {
+    padding: .3rem;
+    border-radius: .2rem;
+    background-color: #d1d8e0 !important;
+}
+
+button:hover {
+    background-color: #a5b1c2 !important;
+}
