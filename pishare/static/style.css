@@ -56,3 +56,11 @@ nav * {
 main {
     padding: 1vw;
 }
+
+#error {
+    color: #fc5c65;
+}
+
+p {
+    overflow-wrap: break-word;
+}

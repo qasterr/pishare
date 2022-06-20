@@ -1,11 +1,16 @@
+from flask import request
 from flask_socketio import SocketIO, emit
 from markupsafe import escape
 
 # Logic from https://github.com/miguelgrinberg/Flask-SocketIO-Chat
 
-PLACEHOLDER_NAME = "John Doe"
-
 socketio = SocketIO()
+
+def clean_username(username: str) -> str:
+    return escape(username[:20])
+
+def clean_message(message: str) -> str:
+    return escape(message[:1000])
 
 @socketio.on("joined", namespace="/chat")
 def joined(message):
@@ -14,7 +19,7 @@ def joined(message):
     emit(
         "status",
         {
-            "msg": f"{PLACEHOLDER_NAME} has joined the chat."
+            "msg": f"{request.cookies.get('username')} has joined the chat."
         },
         broadcast = True
     )
@@ -30,8 +35,8 @@ def text(message):
     emit(
         "message",
         {
-            "author": PLACEHOLDER_NAME,
-            "msg": escape(message["msg"])
+            "author": clean_username(request.cookies.get('username')),
+            "msg": clean_message(message["msg"])
         },
         broadcast = True
     )

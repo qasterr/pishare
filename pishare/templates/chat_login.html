@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Create an account{% endblock %}
+{% block content %}
+    <h1>Choose your username</h1>
+    <p>(Cannot be longer than 20 characters.)</p>
+    <br><br>
+    <form action="/chat/login/" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="Username" required aria-required="true">
+        <br><br>
+        {% if error is defined %}
+            <p id="error">{{ error }}</p>
+        {% endif %}
+        <button type="submit">Choose username</button>
+    </form>
+{% endblock %}
