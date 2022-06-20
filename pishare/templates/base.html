@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     {% block head %}{% endblock %}
-    <title>{% block title %}{% endblock %}</title>
+    <title>PiShare — {% block title %}{% endblock %}</title>
 </head>
 <body>
     {% include "navbar.html" %}
