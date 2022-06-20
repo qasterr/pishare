@@ -26,8 +26,13 @@ Create a file named `config.py` in the directory named `instance`.
 Copy the configuration from the [Configuration Keys](#configuration-keys) section and change the values you wish to change.
 
 ### Starting PiShare
+Linux or Mac
 ```bash
-py run.py
+./run.sh
+```
+Windows
+```bash
+gunicorn --worker-class eventlet -w 1 pishare:app
 ```
 
 ## Configuration Keys
@@ -51,3 +56,7 @@ PiShare is built upon great software by the open source community. These are the
 [Socket.IO](https://socket.io/) — [MIT License](https://github.com/socketio/socket.io/blob/main/LICENSE)
 
 [Flask-SocketIO](https://github.com/miguelgrinberg/Flask-SocketIO) — [MIT License](https://github.com/miguelgrinberg/Flask-SocketIO/blob/main/LICENSE)
+
+[MarkupSafe](https://github.com/pallets/markupsafe) — [BSD-3-Clause License](https://github.com/pallets/markupsafe/blob/main/LICENSE.rst)
+
+[Flask-SocketIO-Chat](https://github.com/miguelgrinberg/Flask-SocketIO-Chat) — [MIT License](https://github.com/miguelgrinberg/Flask-SocketIO-Chat/blob/master/LICENSE)
