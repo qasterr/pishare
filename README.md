@@ -26,14 +26,13 @@ Create a file named `config.py` in the directory named `instance`.
 Copy the configuration from the [Configuration Keys](#configuration-keys) section and change the values you wish to change.
 
 ### Starting PiShare
-Linux or Mac
+#### Linux or Mac
 ```bash
 ./run.sh
 ```
-Windows
-```bash
-.\run.bat
-```
+#### Windows
+Unfortunately, PiShare doesn't work on Windows due to `gunicorn` — the server program we use — not working on Windows.
+If you find a way to use PiShare on Windows without WSL, feel free to open an issue. 
 
 ## Configuration Keys
 Example `instances/config.py` file:
