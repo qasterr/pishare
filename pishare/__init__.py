@@ -1,4 +1,4 @@
-from flask import Flask, Response, redirect
+from flask import Flask, Response, render_template
 from .socket import socketio
 
 app = Flask(__name__, instance_relative_config=True)
@@ -11,13 +11,12 @@ if app.config["SECRET_KEY"] == "<YOUR_SECRET_KEY>":
 
 UPLOAD_FOLDER = app.config.get("UPLOAD_FOLDER", "uploads")
 
-socketio.init_app(app)
+@app.route("/")
+def index():
+    return render_template("index.html")
 
 from . import views
 app.register_blueprint(views.files)
 app.register_blueprint(views.chat)
 
-@app.route("/")
-def index() -> Response():
-    # TODO: Add home page
-    return redirect("/")
+socketio.init_app(app)

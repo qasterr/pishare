@@ -1,0 +1,12 @@
+main > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.features {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    width: 30%;
+}

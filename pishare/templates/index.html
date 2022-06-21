@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+{% endblock %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <div class="center">
+        <h1>Welcome to PiShare</h1>
+        <p>By qasterr</p>
+
+        <div class="separator" style="height: 2vw;"></div>
+
+        <h2>Features</h2>
+        <div class="features">
+            <h3><a href="/chat/">Chat</a></h3>
+            <h3><a href="/files/">File Sharing</a></h3>
+        </div>
+    </div>
+{% endblock %}

@@ -64,3 +64,9 @@ main {
 p {
     overflow-wrap: break-word;
 }
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
