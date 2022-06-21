@@ -14,7 +14,6 @@ file_index = AutoIndexBlueprint(files, UPLOAD_FOLDER, add_url_rules=False)
 @files.route("/upload/", methods=["POST"])
 def upload_file() -> Response:
     if "file" not in request.files:
-        print("E")
         return abort(400)
     file = request.files["file"]
     if file.filename == "":
