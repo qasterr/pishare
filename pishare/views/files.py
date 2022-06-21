@@ -1,5 +1,6 @@
-from pathlib import Path
+"""The file sharing module for PiShare."""
 
+from pathlib import Path
 from flask import Blueprint, Response, request, flash, render_template, abort, current_app, redirect
 from flask_autoindex import AutoIndexBlueprint, AutoIndex
 from werkzeug.utils import secure_filename, safe_join
@@ -13,6 +14,7 @@ file_index = AutoIndexBlueprint(files, UPLOAD_FOLDER, add_url_rules=False)
 
 @files.route("/upload/", methods=["POST"])
 def upload_file() -> Response:
+    """Upload the file in a POST request to the upload folder."""
     if "file" not in request.files:
         return abort(400)
     file = request.files["file"]
@@ -26,5 +28,6 @@ def upload_file() -> Response:
 
 @files.route("/")
 @files.route("/<path:path>")
-def autoindex(path="."):
+def autoindex(path: str = ".") -> Response:
+    """Render a file browser for the files in the upload directory."""
     return file_index.render_autoindex(path, template="file_browser.html")

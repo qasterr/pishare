@@ -1,3 +1,5 @@
+"""Socket endpoints for the chat module."""
+
 from flask import request
 from flask_socketio import SocketIO, emit
 from markupsafe import escape
@@ -6,14 +8,14 @@ from markupsafe import escape
 
 socketio = SocketIO()
 
-def clean_username(username: str) -> str:
-    return escape(username[:20])
+def trim_and_escape(message: str, trim_length: int) -> str:
+    """Trim a message to `trim_length` characters and escape
+    it if HTML tags are included."""
+    return escape(message[:trim_length])
 
-def clean_message(message: str) -> str:
-    return escape(message[:1000])
 
 @socketio.on("joined", namespace="/chat")
-def joined(message):
+def joined(message: str) -> None:
     """Sent by clients when they enter a room.
     A status message is broadcast to all people in the room."""
     emit(
@@ -26,7 +28,7 @@ def joined(message):
 
 
 @socketio.on("text", namespace="/chat")
-def text(message):
+def text(message: str) -> None:
     """Sent by a client when the user entered a new message.
     The message is sent to all people in the room."""
     if message["msg"] == "":
@@ -35,8 +37,8 @@ def text(message):
     emit(
         "message",
         {
-            "author": clean_username(request.cookies.get('username')),
-            "msg": clean_message(message["msg"])
+            "author": trim_and_escape(request.cookies.get('username'), 20),
+            "msg": trim_and_escape(message["msg"], 2000)
         },
         broadcast = True
     )
