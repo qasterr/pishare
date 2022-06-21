@@ -1,3 +1,5 @@
+"""PiShare — An offline messaging and file sharing program designed for privacy."""
+
 from flask import Flask, Response, render_template
 from .socket import socketio
 
@@ -12,7 +14,8 @@ if app.config["SECRET_KEY"] == "<YOUR_SECRET_KEY>":
 UPLOAD_FOLDER = app.config.get("UPLOAD_FOLDER", "uploads")
 
 @app.route("/")
-def index():
+def index() -> Response:
+    """Render the main page."""
     return render_template("index.html")
 
 from . import views

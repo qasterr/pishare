@@ -1,3 +1,5 @@
+"""Socket endpoints for the chat module."""
+
 from flask import request
 from flask_socketio import SocketIO, emit
 from markupsafe import escape
@@ -13,7 +15,7 @@ def trim_and_escape(message: str, trim_length: int) -> str:
 
 
 @socketio.on("joined", namespace="/chat")
-def joined(message):
+def joined(message: str) -> None:
     """Sent by clients when they enter a room.
     A status message is broadcast to all people in the room."""
     emit(
@@ -26,7 +28,7 @@ def joined(message):
 
 
 @socketio.on("text", namespace="/chat")
-def text(message):
+def text(message: str) -> None:
     """Sent by a client when the user entered a new message.
     The message is sent to all people in the room."""
     if message["msg"] == "":
