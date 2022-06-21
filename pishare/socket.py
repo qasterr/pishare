@@ -6,11 +6,11 @@ from markupsafe import escape
 
 socketio = SocketIO()
 
-def clean_username(username: str) -> str:
-    return escape(username[:20])
+def trim_and_escape(message: str, trim_length: int) -> str:
+    """Trim a message to `trim_length` characters and escape
+    it if HTML tags are included."""
+    return escape(message[:trim_length])
 
-def clean_message(message: str) -> str:
-    return escape(message[:1000])
 
 @socketio.on("joined", namespace="/chat")
 def joined(message):
@@ -35,8 +35,8 @@ def text(message):
     emit(
         "message",
         {
-            "author": clean_username(request.cookies.get('username')),
-            "msg": clean_message(message["msg"])
+            "author": trim_and_escape(request.cookies.get('username'), 20),
+            "msg": trim_and_escape(message["msg"], 2000)
         },
         broadcast = True
     )
